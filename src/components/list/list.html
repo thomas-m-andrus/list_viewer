@@ -1,5 +1,17 @@
 
 <section class="list">
-  <h1>list Component</h1>
+    <template>
+        <v-data-table
+          :headers="[{'text':'Icon','value':'profile_pic'},{'text':'First Name','value':'first_name'},{'text':'Last Name','value':'last_name'}]"
+          :items="[{'first_name':'testFirstName','last_name':'testLastName','profile_pic':'placeHolder'}]"
+          class="elevation-1"
+        >
+          <template slot="items" slot-scope="props">
+            <td>{{ props.item.profile_pic }}</td>
+            <td>{{ props.item.first_name }}</td>
+            <td>{{ props.item.last_name }}</td>
+          </template>
+        </v-data-table>
+      </template>
 </section>
 
