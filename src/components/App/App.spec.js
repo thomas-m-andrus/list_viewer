@@ -6,7 +6,7 @@ import AppComponent from './index.vue';
 describe('AppComponent', () => {
   // Inspect the raw component options
   it('has a created hook', () => {
-    // expect(typeof AppComponent.created).toBe('function');
+    expect(1+1).toBe(2);
   })
   // Evaluate the results of functions in
   // the raw component options
