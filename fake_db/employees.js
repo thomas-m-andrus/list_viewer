@@ -1,5 +1,6 @@
 // employees.js
 var faker = require('faker')
+//json-server employees.js
 function generateEmployees () {
   var employees = []
   for (var id = 0; id < 50; id++) {

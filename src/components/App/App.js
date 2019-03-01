@@ -5,7 +5,7 @@ export default {
   props: [],
   data () {
     return {
-
+      count:0
     }
   },
   computed: {
@@ -15,6 +15,8 @@ export default {
 
   },
   methods: {
-
+    increment() {
+      this.count++
+    }
   }
 }

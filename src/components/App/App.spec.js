@@ -1,29 +1,38 @@
 import Vue from 'vue';
+import { shallowMount, mount} from '@vue/test-utils'
 import AppComponent from './index.vue';
 
+
+describe('Counter', () => {
+  // Now mount the component and you have the wrapper
+  const wrapper = mount(AppComponent)
+
+  it('renders the correct markup', () => {
+    console.log(wrapper.html())
+    expect(wrapper.html()).toContain('<span class="count">0</span>')
+  })
+
+  // it's also easy to check for the existence of elements
+  it('has a button', () => {
+    expect(wrapper.contains('button')).toBe(true)
+  })
+})
+
+/*
 // Here are some Jasmine 2.0 tests, though you can
 // use any test runner / assertion library combo you prefer
 describe('AppComponent', () => {
-  // Inspect the raw component options
-  it('has a created hook', () => {
-    expect(1+1).toBe(2);
+  //const deepMount = mount(AppComponent)
+  const lesserMount = shallowMount(AppComponent)
+  it("renders the component", () => {
+    const wrapper = shallowMount(AppComponent)
+    expect(wrapper.html()).toMatchSnapshot()
   })
-  // Evaluate the results of functions in
-  // the raw component options
-  it('sets the correct default data', () => {
-    // expect(typeof AppComponent.data).toBe('function')
-    // const defaultData = AppComponent.data();
-    // expect(defaultData.message).toBe('hello!');
+  it("redirects to home if title is clicked", () => {
+    console.log(lesserMount.vm)
+    //expect(deepMount.vm.SPECIAL).toBe(0)
+    //const button = deepMount.find("v-toolbar-title");
+    //button.trigger('click');
+    //expect(deepMount.vm.SPECIAL).toBe(1);
   })
-  // Inspect the component instance on mount
-  it('correctly sets the message when created', () => {
-    // const vm = new Vue(AppComponent).$mount();
-    // expect(vm.message).toBe('bye!');
-  })
-  // Mount an instance and inspect the render output
-  it('renders the correct message', () => {
-    // const Ctor = Vue.extend(AppComponent);
-    // const vm = new Ctor().$mount();
-    // expect(vm.$el.textContent).toBe('bye!');
-  })
-})
+})*/
