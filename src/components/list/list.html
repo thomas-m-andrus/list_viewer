@@ -1,17 +1,37 @@
 
 <section class="list">
-    <template>
-        <v-data-table
-          :headers="[{'text':'Icon','value':'profile_pic'},{'text':'First Name','value':'first_name'},{'text':'Last Name','value':'last_name'}]"
-          :items="[{'first_name':'testFirstName','last_name':'testLastName','profile_pic':'placeHolder'}]"
-          class="elevation-1"
+  <v-data-table
+    :headers="headers"
+    :items="employees"
+    item-key="id"
+    :pagination.sync="pagination"
+    :rowsPerPageItems="[10]"
+  >
+    <template v-slot:headers="props">
+      <tr>
+        <th 
+          v-for="header in props.headers"
         >
-          <template slot="items" slot-scope="props">
-            <td>{{ props.item.profile_pic }}</td>
-            <td>{{ props.item.first_name }}</td>
-            <td>{{ props.item.last_name }}</td>
-          </template>
-        </v-data-table>
-      </template>
+          <v-layout row>
+            <v-icon small v-if="header.sort">arrow_upward</v-icon>
+            <v-text-field :label="header.label" v-if="header.filter"></v-text-field>
+            <v-icon small v-if="header.filter">filter_list</v-icon>
+            <span v-else>{{header.label}}</span>
+          </v-layout>
+        </th>
+      </tr>
+    </template>
+    <template v-slot:items="props">
+      <td class="img_td">
+        <v-img :src="props.item.profile_pic"></v-img>
+      </td>
+      <td>
+        {{props.item.first_name}}
+      </td>
+      <td>
+          {{props.item.last_name}}
+      </td>
+    </template>
+  </v-data-table>
 </section>
 

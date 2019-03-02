@@ -1,5 +1,44 @@
 
 <section class="detail">
-  <h1>detail Component</h1>
+  <v-container>
+    <v-layout align-center>
+      <v-flex xs12 sm6 offset-sm3>
+        <v-card>
+          <v-img
+            :src=employee.profile_pic
+          >
+          </v-img>
+          <v-card-title primary-title>
+            <div>
+              <div class="headline">{{name}}</div>
+              <div class="grey--text">ID Number: {{employee.id}}</div>
+              <div class="grey--text">Occupation: {{employee.occupation}}</div>
+            </div>
+          </v-card-title>
+          <v-card-actions>
+            <v-btn flat icon color="green">
+              <v-icon>arrow_back</v-icon>
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn icon @click="show = !show">
+              <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
+            </v-btn>
+          </v-card-actions>
+          <v-slide-y-transition>
+            <v-card-text v-show="show">
+              <div>Email: {{employee.email}}</div>
+              <div>Favorite Animal:</div>
+              <div>
+                  <v-img
+                  :src=employee.favorite_animal
+                >
+                </v-img>
+              </div>
+            </v-card-text>
+          </v-slide-y-transition>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </section>
 
