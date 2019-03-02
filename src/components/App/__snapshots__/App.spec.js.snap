@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent renders the component 1`] = `
+<v-app>
+  <v-toolbar app="">
+    <v-toolbar-title class="headline text-uppercase"><span>Simple Vue List</span></v-toolbar-title>
+    <v-spacer></v-spacer> <span class="mr-2">Latest Release</span>
+  </v-toolbar>
+  <v-content>
+    <router-view></router-view>
+  </v-content>
+</v-app>
+`;
