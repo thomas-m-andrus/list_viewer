@@ -26,4 +26,20 @@ describe('ListComponent', () => {
     // const vm = new Ctor().$mount();
     // expect(vm.$el.textContent).toBe('bye!');
   })
+  //my tests
+  describe("UI behavior", ()=>{
+    it("Arrow next to category should be connected to function sortList", ()=>{
+
+    })
+    it("Filter symbol should be connected to function filterList", ()=>{
+
+    })
+    it("Entries should be connected to function showDetails",()=>{
+
+    })
+    it("Page arrow buttons should be connected to turnPage function",()=>{
+
+    })
+  })
+  describe("Internal Properties")
 })

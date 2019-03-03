@@ -26,4 +26,5 @@ describe('DetailComponent', () => {
     // const vm = new Ctor().$mount();
     // expect(vm.$el.textContent).toBe('bye!');
   })
+
 })

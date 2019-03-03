@@ -5,7 +5,8 @@
     :items="employees"
     item-key="id"
     :pagination.sync="pagination"
-    :rowsPerPageItems="[10]"
+    :rows-per-page-items="pagination.rowsPerPageItems"
+    :total-items="pagination.totalItems"
   >
     <template v-slot:headers="props">
       <tr>
