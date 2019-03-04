@@ -1,0 +1,92 @@
+[
+  {
+    "id": 0,
+    "first_name": "Kailee",
+    "last_name": "Koch",
+    "email": "Megane_Reilly@yahoo.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/nyancecom/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Dynamic Marketing Agent"
+  },
+  {
+    "id": 1,
+    "first_name": "Nannie",
+    "last_name": "Trantow",
+    "email": "Adan_Gutkowski50@hotmail.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/findingjenny/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Customer Identity Manager"
+  },
+  {
+    "id": 2,
+    "first_name": "Forrest",
+    "last_name": "McClure",
+    "email": "Shawn11@yahoo.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/artvavs/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Human Operations Producer"
+  },
+  {
+    "id": 3,
+    "first_name": "Allene",
+    "last_name": "Weissnat",
+    "email": "Enrique.Reichel92@yahoo.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/juanmamartinez/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Central Marketing Liaison"
+  },
+  {
+    "id": 4,
+    "first_name": "Ray",
+    "last_name": "Rogahn",
+    "email": "Benjamin.Brekke@yahoo.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/chatyrko/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Customer Factors Designer"
+  },
+  {
+    "id": 5,
+    "first_name": "Jason",
+    "last_name": "Hirthe",
+    "email": "Richmond.Schamberger25@gmail.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/vitorleal/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Central Solutions Director"
+  },
+  {
+    "id": 6,
+    "first_name": "Grant",
+    "last_name": "Kovacek",
+    "email": "Joanie.Langworth@yahoo.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/ultragex/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "International Interactions Manager"
+  },
+  {
+    "id": 7,
+    "first_name": "Coy",
+    "last_name": "Torp",
+    "email": "Orion.West@hotmail.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/davidcazalis/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Investor Branding Planner"
+  },
+  {
+    "id": 8,
+    "first_name": "Daron",
+    "last_name": "Moore",
+    "email": "Arvilla.Kirlin79@gmail.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/nehfy/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Chief Quality Liaison"
+  },
+  {
+    "id": 9,
+    "first_name": "Tom",
+    "last_name": "Zulauf",
+    "email": "Jan_Carter@gmail.com",
+    "profile_pic": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg",
+    "favorite_animal": "http://lorempixel.com/640/480/animals",
+    "occupation": "Chief Integration Representative"
+  }
+]

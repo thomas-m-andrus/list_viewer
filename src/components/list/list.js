@@ -15,7 +15,8 @@ export default {
       sortIcons:{
         asc:"arrow_upward",
         desc:"arrow_downward"
-      }
+      },
+      polling:null
     }
   },
   computed: {
@@ -52,9 +53,14 @@ export default {
         this.headers[this.headerKeys.indexOf(recoverSession.sort.prop)].sort = recoverSession.sort.direction;
       }
     }
+    this.pollData();
   },
   mounted () {
     
+  },
+  beforeDestroy(){
+    console.log("polling data should be destroyed")
+    clearInterval(this.polling);
   },
   methods: {
     fetchEmployees(){
@@ -84,6 +90,12 @@ export default {
     activeSort(val){
       let result = (this.sort.prop===val) ? "green" : "grey";
       return result;
+    },
+    pollData(){
+      console.log("polling data has begun")
+      this.polling = setInterval(function(){
+        this.fetchEmployees();
+      }.bind(this),600000);
     }
   }
 }
