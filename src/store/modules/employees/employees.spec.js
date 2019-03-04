@@ -2,9 +2,11 @@
 import employees from "./employees";
 import axios from "axios";
 import Vue from "vue";
-import {RAW_EmployeesList,INITIAL_Store} from "./../../../../tests/unit/employees-fake-data"
+import {RAW_EmployeesList,INITIAL_Store,Raw_EmployeeDetail} from "./../../../../tests/unit/employees-fake-data"
+import { callbackify } from "util";
 const mutations = employees.mutations;
 const actions = employees.actions;
+const getters = employees.getters;
 
 describe("Testing Mutations",()=>{
     let state = null;
@@ -83,18 +85,38 @@ describe("Testing Mutations",()=>{
         expect(state.sort).toEqual("new_val");
     })
 })
-describe("testing actions", async ()=>{
-    it("fetchEmployees - makes axios call and alters store updating employees, pagination, and loading",async ()=>{
-        axios.get.mockImplementationOnce(()=>
+describe("Testing Actions", async ()=>{
+    beforeEach(()=>{
+        axios.get.mockReset()
+    })
+    it("fetchEmployees - makes axios call",async ()=>{
+        axios.get.mockImplementation(()=>
             Promise.resolve(RAW_EmployeesList)
         );
         const init_context = {
             state:INITIAL_Store,
             commit:jest.fn()
         };
-        console.log(axios.test());
+        Vue.axios = axios;
         await actions.fetchEmployees(init_context);
-        console.log(result);
-        
+        expect(Vue.axios.get).toHaveBeenCalledTimes(1);
+        expect(Vue.axios.get).toHaveBeenCalledWith("http://localhost:3000/employees?_page=1&_limit=10")
+
     })
+    it("fetchEmployeeDetail - makes axios call",async ()=>{
+        axios.get.mockImplementation(()=>
+            Promise.resolve(Raw_EmployeeDetail)
+        );
+        const init_context = {
+            state:INITIAL_Store,
+            commit:jest.fn()
+        };
+        Vue.axios = axios;
+        await actions.fetchEmployeeDetail(init_context,0);
+        expect(Vue.axios.get).toHaveBeenCalledTimes(1);
+        expect(Vue.axios.get).toHaveBeenCalledWith("http://localhost:3000/employees?id=0")
+    })
+})
+describe("Testing Getters", async ()=>{
+    it("")
 })
