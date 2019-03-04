@@ -1,6 +1,10 @@
 import Vue from "vue";
 
 const state = {
+    loading:{
+        employees:false,
+        employeeDetail:false
+    },
     employees:[],
     pagination:{
         rowsPerPage:10,
@@ -10,20 +14,33 @@ const state = {
         first_name:null,
         last_name:null
     },
+    sort:{
+        prop:null,
+        direction:null
+    },
     employeeDetail:{}
 }
 const getters = {
     getPagination(state){
         return state.pagination;
     },
-    getfilters(state){
+    getFilters(state){
         return state.filters;
     },
     getEmployees(state){
-        return state.employees
+        return state.employees;
     },
     getEmployeeDetail(state){
-        return state.employeeDetail
+        return state.employeeDetail;
+    },
+    getLoading(state){
+        return state.loading;
+    },
+    getSpecificLoad:state=>prop=>{
+        return state.loading[prop];
+    },
+    getSort(state){
+        return state.sort;
     }
 }
 const actions = {
@@ -37,11 +54,17 @@ const actions = {
                 _HTTP += `&${f}=${filters[f]}`
             }
         }
+
+        if(context.state.sort.prop!==null){
+            _HTTP += `&_sort=${context.state.sort.prop}&_order=${context.state.sort.direction}`
+        }
+        context.commit("updateLoading","employees");
         await Vue.axios
             .get(
                 _HTTP
             )
             .then(r => {
+                context.commit("updateLoading","employees");
                 let pageData = {
                     totalItems:parseInt(r.headers["x-total-count"]),
                 }
@@ -56,7 +79,7 @@ const actions = {
             _HTTP
         )
         .then(r =>{
-            context.commit("updateEmployeeDetail",r.data)
+            context.commit("updateEmployeeDetail",r.data[0])
         })
     }
 }
@@ -79,6 +102,12 @@ const mutations = {
         for(var el in payload){
             state.filter[el] = payload[el];
         }
+    },
+    updateLoading(state,prop){
+        state.loading[prop] = !state.loading[prop];
+    },
+    updateSort(state,payload){
+        state.sort = payload
     }
 }
 export default{
