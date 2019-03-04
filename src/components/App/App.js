@@ -15,8 +15,8 @@ export default {
 
   },
   methods: {
-    goToHome(){
-      this.$router.push({name: "detail", params: {id:1}})
-    }
+    backToHome(){
+      this.$router.push("/")
+    },
   }
 }

@@ -5,32 +5,40 @@
     :items="employees"
     item-key="id"
     :pagination.sync="pagination"
-    :rowsPerPageItems="[10]"
+    :rows-per-page-items="pagination.rowsPerPageItems"
+    :total-items="pagination.totalItems"
+    :loading="loading"
   >
-    <template v-slot:headers="props">
+    <template v-slot:headers="props" justify-start>
       <tr>
         <th 
-          v-for="header in props.headers"
+          v-for="(header,idx) in props.headers"
+          class="text-xs-left"
         >
-          <v-layout row>
-            <v-icon small v-if="header.sort">arrow_upward</v-icon>
-            <v-text-field :label="header.label" v-if="header.filter"></v-text-field>
-            <v-icon small v-if="header.filter">filter_list</v-icon>
-            <span v-else>{{header.label}}</span>
+          <v-btn @click="filterResults" v-if="idx===0">
+            <v-icon small>filter_list</v-icon>
+          </v-btn>
+          <v-layout row v-else>
+            <v-text-field :label="header.label" v-if="header.filter" v-model="filters[header.dbVal]" class="filter_input"></v-text-field>
+            <v-btn flat fab small v-if="header.hasOwnProperty('sort')" @click="updateSort(idx)">
+              <v-icon small :color="activeSort(header.dbVal)">{{sortIcons[header.sort]}}</v-icon>
+            </v-btn>
           </v-layout>
         </th>
       </tr>
     </template>
     <template v-slot:items="props">
-      <td class="img_td">
-        <v-img :src="props.item.profile_pic"></v-img>
-      </td>
-      <td>
-        {{props.item.first_name}}
-      </td>
-      <td>
-          {{props.item.last_name}}
-      </td>
+      <tr @click="openDetail(props.item.id)">
+        <td class="text-xs-left">
+          <v-img :src="props.item.profile_pic" class="img_td"></v-img>
+        </td>
+        <td class="text-xs-left">
+          {{props.item.first_name}}
+        </td>
+        <td class="text-xs-left">
+            {{props.item.last_name}}
+        </td>
+      </tr>
     </template>
   </v-data-table>
 </section>
