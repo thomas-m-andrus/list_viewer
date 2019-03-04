@@ -35,3 +35,15 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+###Dockerize
+
+### Build the Docker Container
+```
+cd </your/project/path>
+docker build -t dockerized-vue .
+```
+### Run the Docker Container
+```
+docker run -it -p 8082:8080 --rm --name dockerized-vue-app1 dockerized-vue
+```
