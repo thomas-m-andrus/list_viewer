@@ -54,7 +54,6 @@ const actions = {
                 _HTTP += `&${f}=${filters[f]}`
             }
         }
-
         if(context.state.sort.prop!==null){
             _HTTP += `&_sort=${context.state.sort.prop}&_order=${context.state.sort.direction}`
         }
@@ -66,8 +65,15 @@ const actions = {
             .then(r => {
                 context.commit("updateLoading","employees");
                 let pageData = {
-                    totalItems:parseInt(r.headers["x-total-count"]),
+                    totalItems:parseInt(r.headers["x-total-count"])
                 }
+                let state = context.state;
+                let loc = {}
+                localStorage.clear();
+                loc["pagination"] = state.pagination;
+                loc["filters"] = state.filters;
+                loc["sort"] = state.sort;
+                localStorage.____sessionRecovery = JSON.stringify(loc);
                 context.commit("updateEmployees",r.data)
                 context.commit("updatePaginationElement",pageData)
             })
@@ -102,6 +108,9 @@ const mutations = {
         for(var el in payload){
             state.filter[el] = payload[el];
         }
+    },
+    updateFilters(state,payload){
+        state.filters = payload;
     },
     updateLoading(state,prop){
         state.loading[prop] = !state.loading[prop];

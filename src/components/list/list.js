@@ -11,6 +11,7 @@ export default {
         {label:'First Name',sort:"asc",filter:true,dbVal:"first_name"},
         {label:'Last Name',sort:"asc",filter:true,dbVal:"last_name"}
       ],
+      headerKeys:[],
       sortIcons:{
         asc:"arrow_upward",
         desc:"arrow_downward"
@@ -37,8 +38,23 @@ export default {
       this.$store.getters["employees/getSpecificLoad"]("employees")
     }
   },
+  created (){
+    if(localStorage.____sessionRecovery!==null){
+      let recoverSession = localStorage.____sessionRecovery;
+      recoverSession = JSON.parse(recoverSession);
+      this.$store.commit("employees/updatePagination",recoverSession.pagination);
+      this.$store.commit("employees/updateFilters",recoverSession.filters);
+      this.$store.commit("employees/updateSort",recoverSession.sort);
+      this.headers.forEach(element => {
+        this.headerKeys.push(element.dbVal);
+      });
+      if(recoverSession.sort.prop!==null){
+        this.headers[this.headerKeys.indexOf(recoverSession.sort.prop)].sort = recoverSession.sort.direction;
+      }
+    }
+  },
   mounted () {
-    this.fetchEmployees()
+    
   },
   methods: {
     fetchEmployees(){
