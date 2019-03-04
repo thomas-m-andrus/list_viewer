@@ -12,6 +12,9 @@ COPY package*.json ./
 # install project dependencies
 RUN npm install
 
+# install json-server to run api
+#RUN npm install -g json-server
+
 # copy project files and folders to the current working directory (i.e. 'app' folder)
 COPY . .
 
