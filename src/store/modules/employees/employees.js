@@ -106,7 +106,7 @@ const mutations = {
     },
     updateFilterElement(state,payload){
         for(var el in payload){
-            state.filter[el] = payload[el];
+            state.filters[el] = payload[el];
         }
     },
     updateFilters(state,payload){
