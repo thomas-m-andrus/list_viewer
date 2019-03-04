@@ -3,7 +3,6 @@ import employees from "./employees";
 import axios from "axios";
 import Vue from "vue";
 import {RAW_EmployeesList,INITIAL_Store,Raw_EmployeeDetail} from "./../../../../tests/unit/employees-fake-data"
-import { callbackify } from "util";
 const mutations = employees.mutations;
 const actions = employees.actions;
 const getters = employees.getters;
@@ -118,5 +117,15 @@ describe("Testing Actions", async ()=>{
     })
 })
 describe("Testing Getters", async ()=>{
-    it("")
+    it("getSpecifiedLoad - should return state of the prop within the loading prop",()=>{
+        const state = {
+            loading:{
+                employees:"return_value_of_employees",
+                employeeDetail:"return_value_of_employeeDetail"
+            }
+        }
+        let get = getters.getSpecificLoad(state);
+        get = get("employees");
+        expect(get).toEqual("return_value_of_employees");
+    })
 })
