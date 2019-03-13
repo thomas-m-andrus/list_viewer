@@ -92,7 +92,6 @@ export default {
       return result;
     },
     pollData(){
-      console.log("polling data has begun")
       this.polling = setInterval(function(){
         this.fetchEmployees();
       }.bind(this),600000);

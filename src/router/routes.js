@@ -1,5 +1,5 @@
-import list from "./../components/list"
-import detail from "./../components/detail"
+import list from "./../views/list"
+import detail from "./../views/detail"
 
 const routes = [
     {path: '/', name: "home", redirect:"/list"},

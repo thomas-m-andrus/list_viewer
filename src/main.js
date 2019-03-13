@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css'
-import App from './components/App';
+import App from './views/App';
 import store from "./store/index";
 import axios from "axios";
 import router from "./router/index";
